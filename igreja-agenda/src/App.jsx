@@ -31,7 +31,7 @@ export default function App() {
   const { currentPage, darkMode } = useStore()
   const PageComponent = PAGES[currentPage] || Dashboard
 
-  // Apply dark class to html
+  // Apply dark class to html //
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
   }, [darkMode])

@@ -1,40 +1,74 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useStore } from '@/context/store'
+import { motion, AnimatePresence } from "framer-motion";
+import { useStore } from "@/context/store";
 import {
-  RiDashboardLine, RiCalendarLine, RiBookOpenLine, RiStarLine,
-  RiGroupLine, RiDoorOpenLine, RiHeartLine, RiIdCardLine,
-  RiBellLine, RiSettingsLine, RiMoonLine, RiSunLine,
-  RiMenuFoldLine, RiMenuUnfoldLine, RiLeafLine,
-} from 'react-icons/ri'
+  RiDashboardLine,
+  RiCalendarLine,
+  RiBookOpenLine,
+  RiStarLine,
+  RiGroupLine,
+  RiDoorOpenLine,
+  RiHeartLine,
+  RiIdCardLine,
+  RiBellLine,
+  RiSettingsLine,
+  RiMoonLine,
+  RiSunLine,
+  RiMenuFoldLine,
+  RiMenuUnfoldLine,
+  RiLeafLine,
+} from "react-icons/ri";
 
 const NAV = [
   {
-    section: 'Principal',
+    section: "Principal",
     items: [
-      { id: 'dashboard',      label: 'Dashboard',       icon: RiDashboardLine, badge: null },
-      { id: 'calendario',     label: 'Calendário',      icon: RiCalendarLine,  badge: 3    },
-      { id: 'cultos',         label: 'Cultos',          icon: RiBookOpenLine,  badge: null },
-      { id: 'eventos',        label: 'Eventos',         icon: RiStarLine,      badge: null },
+      {
+        id: "dashboard",
+        label: "Dashboard",
+        icon: RiDashboardLine,
+        badge: null,
+      },
+      { id: "calendario", label: "Calendário", icon: RiCalendarLine, badge: 3 },
+      { id: "cultos", label: "Cultos", icon: RiBookOpenLine, badge: null },
+      { id: "eventos", label: "Eventos", icon: RiStarLine, badge: null },
     ],
   },
   {
-    section: 'Gestão',
+    section: "Gestão",
     items: [
-      { id: 'voluntarios',    label: 'Voluntários',    icon: RiGroupLine,    badge: null },
-      { id: 'salas',          label: 'Salas',          icon: RiDoorOpenLine, badge: null },
-      { id: 'aconselhamento', label: 'Aconselhamento', icon: RiHeartLine,    badge: 2    },
-      { id: 'membros',        label: 'Membros',        icon: RiIdCardLine,   badge: null },
+      {
+        id: "voluntarios",
+        label: "Voluntários",
+        icon: RiGroupLine,
+        badge: null,
+      },
+      { id: "salas", label: "Salas", icon: RiDoorOpenLine, badge: null },
+      {
+        id: "aconselhamento",
+        label: "Aconselhamento",
+        icon: RiHeartLine,
+        badge: 2,
+      },
+      { id: "membros", label: "Membros", icon: RiIdCardLine, badge: null },
     ],
   },
-]
+];
 
 export default function Sidebar() {
-  const { currentPage, setPage, darkMode, toggleDark, sidebarCollapsed, toggleSidebar, showToast } = useStore()
+  const {
+    currentPage,
+    setPage,
+    darkMode,
+    toggleDark,
+    sidebarCollapsed,
+    toggleSidebar,
+    showToast,
+  } = useStore();
 
   return (
     <motion.aside
       animate={{ width: sidebarCollapsed ? 68 : 240 }}
-      transition={{ duration: 0.22, ease: 'easeInOut' }}
+      transition={{ duration: 0.22, ease: "easeInOut" }}
       className="flex-shrink-0 bg-white dark:bg-gray-900 border-r border-cream-200 dark:border-gray-800 flex flex-col overflow-hidden z-20 relative"
     >
       {/* Brand */}
@@ -51,8 +85,12 @@ export default function Sidebar() {
               transition={{ duration: 0.15 }}
               className="overflow-hidden"
             >
-              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 whitespace-nowrap">Graça Viva</p>
-              <p className="text-[10px] text-gray-400 uppercase tracking-wider whitespace-nowrap">Sistema de Agenda</p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 whitespace-nowrap">
+                Assembleia de Deus
+              </p>
+              <p className="text-[10px] text-gray-400 uppercase tracking-wider whitespace-nowrap">
+                Sistema de Agenda
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -79,13 +117,15 @@ export default function Sidebar() {
                   key={id}
                   onClick={() => setPage(id)}
                   title={sidebarCollapsed ? label : undefined}
-                  className={`nav-item ${currentPage === id ? 'active' : ''} ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+                  className={`nav-item ${currentPage === id ? "active" : ""} ${sidebarCollapsed ? "justify-center px-0" : ""}`}
                 >
                   <Icon className="text-lg flex-shrink-0" />
                   <AnimatePresence>
                     {!sidebarCollapsed && (
                       <motion.span
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         className="flex-1 text-left text-sm whitespace-nowrap"
                       >
                         {label}
@@ -93,7 +133,9 @@ export default function Sidebar() {
                     )}
                   </AnimatePresence>
                   {!sidebarCollapsed && badge && (
-                    <span className="badge badge-blue text-[10px] px-1.5 py-0">{badge}</span>
+                    <span className="badge badge-blue text-[10px] px-1.5 py-0">
+                      {badge}
+                    </span>
                   )}
                 </button>
               ))}
@@ -106,26 +148,46 @@ export default function Sidebar() {
       <div className="border-t border-cream-100 dark:border-gray-800 p-2 space-y-0.5 flex-shrink-0">
         <button
           onClick={toggleDark}
-          title={sidebarCollapsed ? (darkMode ? 'Modo claro' : 'Modo escuro') : undefined}
-          className={`nav-item ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+          title={
+            sidebarCollapsed
+              ? darkMode
+                ? "Modo claro"
+                : "Modo escuro"
+              : undefined
+          }
+          className={`nav-item ${sidebarCollapsed ? "justify-center px-0" : ""}`}
         >
-          {darkMode ? <RiSunLine className="text-lg" /> : <RiMoonLine className="text-lg" />}
+          {darkMode ? (
+            <RiSunLine className="text-lg" />
+          ) : (
+            <RiMoonLine className="text-lg" />
+          )}
           <AnimatePresence>
             {!sidebarCollapsed && (
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-sm whitespace-nowrap">
-                {darkMode ? 'Modo claro' : 'Modo escuro'}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-sm whitespace-nowrap"
+              >
+                {darkMode ? "Modo claro" : "Modo escuro"}
               </motion.span>
             )}
           </AnimatePresence>
         </button>
         <button
-          onClick={() => showToast('Configurações em breve')}
-          className={`nav-item ${sidebarCollapsed ? 'justify-center px-0' : ''}`}
+          onClick={() => showToast("Configurações em breve")}
+          className={`nav-item ${sidebarCollapsed ? "justify-center px-0" : ""}`}
         >
           <RiSettingsLine className="text-lg" />
           <AnimatePresence>
             {!sidebarCollapsed && (
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-sm whitespace-nowrap">
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-sm whitespace-nowrap"
+              >
                 Configurações
               </motion.span>
             )}
@@ -134,22 +196,31 @@ export default function Sidebar() {
 
         {/* User */}
         <button
-          onClick={() => showToast('Perfil: Pastor Silva')}
-          className={`nav-item mt-2 ${sidebarCollapsed ? 'justify-center px-0' : 'gap-2.5'}`}
+          onClick={() => showToast("Perfil: Pastor Silva")}
+          className={`nav-item mt-2 ${sidebarCollapsed ? "justify-center px-0" : "gap-2.5"}`}
         >
           <div className="avatar w-7 h-7 bg-serenity-50 dark:bg-serenity-900 text-serenity-700 dark:text-serenity-200 text-[10px] flex-shrink-0">
             PS
           </div>
           <AnimatePresence>
             {!sidebarCollapsed && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-left overflow-hidden">
-                <p className="text-xs font-medium text-gray-800 dark:text-gray-100 truncate">Pastor Silva</p>
-                <p className="text-[10px] text-gray-400 truncate">Administrador</p>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-left overflow-hidden"
+              >
+                <p className="text-xs font-medium text-gray-800 dark:text-gray-100 truncate">
+                  Pastor Silva
+                </p>
+                <p className="text-[10px] text-gray-400 truncate">
+                  Administrador
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
         </button>
       </div>
     </motion.aside>
-  )
+  );
 }
