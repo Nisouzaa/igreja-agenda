@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #D4CCBF transparent;
+  }
+  *::-webkit-scrollbar { width: 4px; height: 4px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb { background: #D4CCBF; border-radius: 4px; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-cream-200 dark:border-gray-800 shadow-soft;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm
+           transition-all duration-150 active:scale-95 select-none cursor-pointer border-0 outline-none;
+  }
+  .btn-primary {
+    @apply bg-serenity-400 text-white hover:bg-serenity-600;
+  }
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 border border-cream-200 dark:border-gray-700
+           text-gray-700 dark:text-gray-200 hover:bg-cream-50 dark:hover:bg-gray-700;
+  }
+  .btn-ghost {
+    @apply text-gray-500 hover:bg-cream-100 dark:hover:bg-gray-800 hover:text-gray-800 dark:hover:text-gray-100;
+  }
+  .input {
+    @apply w-full px-3 py-2.5 rounded-xl border border-cream-200 dark:border-gray-700
+           bg-cream-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100
+           text-sm placeholder-gray-400 outline-none
+           focus:border-serenity-400 focus:ring-2 focus:ring-serenity-50 dark:focus:ring-serenity-900
+           transition-all duration-150;
+  }
+  .label {
+    @apply block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-blue   { @apply bg-serenity-50 text-serenity-800 dark:bg-serenity-900 dark:text-serenity-100; }
+  .badge-gold   { @apply bg-gold-50 text-gold-800 dark:bg-yellow-900 dark:text-yellow-100; }
+  .badge-green  { @apply bg-sage-50 text-sage-800 dark:bg-green-900 dark:text-green-100; }
+  .badge-red    { @apply bg-red-50 text-red-700 dark:bg-red-900 dark:text-red-100; }
+  .badge-purple { @apply bg-purple-50 text-purple-700 dark:bg-purple-900 dark:text-purple-100; }
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-500 dark:text-gray-400
+           hover:bg-cream-100 dark:hover:bg-gray-800 hover:text-gray-800 dark:hover:text-gray-100
+           cursor-pointer transition-all duration-150 w-full border-0 outline-none bg-transparent;
+  }
+  .nav-item.active {
+    @apply bg-serenity-50 dark:bg-serenity-900 text-serenity-800 dark:text-serenity-100 font-medium;
+  }
+  .avatar {
+    @apply flex items-center justify-center rounded-full font-medium flex-shrink-0 text-xs;
+  }
+  .metric-card {
+    @apply card p-5 cursor-pointer hover:shadow-medium hover:-translate-y-0.5 transition-all duration-200;
+  }
+}
