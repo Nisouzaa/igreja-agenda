@@ -1,40 +1,40 @@
-import { useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useStore } from '@/context/store'
+import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useStore } from "@/context/store";
 
-import Sidebar  from '@/components/layout/Sidebar'
-import Header   from '@/components/layout/Header'
-import Toast    from '@/components/ui/Toast'
-import Modal    from '@/components/ui/Modal'
+import Sidebar from "@/components/layout/Sidebar";
+import Header from "@/components/layout/Header";
+import Toast from "@/components/ui/Toast";
+import Modal from "@/components/ui/Modal";
 
-import Dashboard      from '@/pages/Dashboard'
-import Calendario     from '@/pages/Calendario'
-import Cultos         from '@/pages/Cultos'
-import Eventos        from '@/pages/Eventos'
-import Voluntarios    from '@/pages/Voluntarios'
-import Salas          from '@/pages/Salas'
-import Aconselhamento from '@/pages/Aconselhamento'
-import Membros        from '@/pages/Membros'
+import Dashboard from "@/pages/Dashboard";
+import Calendario from "@/pages/Calendario";
+import Cultos from "@/pages/Cultos";
+import Eventos from "@/pages/Eventos";
+import Voluntarios from "@/pages/Voluntarios";
+import Salas from "@/pages/Salas";
+import Aconselhamento from "@/pages/Aconselhamento";
+import Membros from "@/pages/Membros";
 
 const PAGES = {
-  dashboard:      Dashboard,
-  calendario:     Calendario,
-  cultos:         Cultos,
-  eventos:        Eventos,
-  voluntarios:    Voluntarios,
-  salas:          Salas,
+  dashboard: Dashboard,
+  calendario: Calendario,
+  cultos: Cultos,
+  eventos: Eventos,
+  voluntarios: Voluntarios,
+  salas: Salas,
   aconselhamento: Aconselhamento,
-  membros:        Membros,
-}
+  membros: Membros,
+};
 
 export default function App() {
-  const { currentPage, darkMode } = useStore()
-  const PageComponent = PAGES[currentPage] || Dashboard
+  const { currentPage, darkMode } = useStore();
+  const PageComponent = PAGES[currentPage] || Dashboard;
 
   // Apply dark class to html //
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode)
-  }, [darkMode])
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
 
   return (
     <div className="flex h-screen overflow-hidden bg-cream-100 dark:bg-gray-950">
@@ -62,5 +62,5 @@ export default function App() {
       <Modal />
       <Toast />
     </div>
-  )
+  );
 }
