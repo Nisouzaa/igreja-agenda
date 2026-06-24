@@ -213,8 +213,7 @@ export default function Sidebar() {
                 className="text-left overflow-hidden"
               >
                 <p className="text-xs font-medium text-gray-800 dark:text-gray-100 truncate leading-tight">
-                  
-                  
+                  Pastor Silva
                 </p>
                 <p className="text-[10px] text-gray-400 truncate">
                   Administrador
