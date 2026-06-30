@@ -62,7 +62,7 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      animate={{ width: sidebarCollapsed ? 68 : 236 }}
+      animate={{ width: sidebarCollapsed ? 100 : 240 }}
       transition={{ duration: 0.2, ease: "easeInOut" }}
       className="flex-shrink-0 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 flex flex-col overflow-hidden z-20 relative"
     >
@@ -82,10 +82,10 @@ export default function Sidebar() {
               className="overflow-hidden"
             >
               <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 whitespace-nowrap leading-tight">
-                Graça Viva
+                ASD-Igreja
               </p>
-              <p className="text-[10px] text-gray-400 uppercase tracking-widest whitespace-nowrap">
-                Sistema de Agenda
+              <p className="text-[8.5px] text-gray-400 uppercase tracking-widest whitespace-nowrap">
+                Missão Galo Branco
               </p>
             </motion.div>
           )}
